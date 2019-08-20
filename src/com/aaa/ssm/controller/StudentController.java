@@ -46,5 +46,6 @@ public class StudentController {
         studentService.add(student);
         ModelAndView mav = new ModelAndView("redirect:/list");
         return mav;
+		//dwdawdadw
     }
 }
