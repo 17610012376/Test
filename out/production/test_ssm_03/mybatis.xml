@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+      <environments default="mySql">
+          <environment id="mySql">
+          <!--声明mybatis的事物管理方式
+          JDBC :使用jdbc的方式管理mybatis的事物，jdbc 操作事物 commit rollback
+          MANAGED:使用容器的事物管理器
+          -->
+          <transactionManager type="JDBC"></transactionManager>
+          <!-- 配置mybatis的数据库连接池
+          POOLED: 使用连接池的方式管理mybatis的连接
+          UNPOOLED:不使用连接池的方式管理mybatis的连接
+          -->
+          <dataSource type="POOLED">
+          <property name="driver" value="com.mysql.jdbc.Driver"></property>
+          <property name="url" value="jdbc:mysql://localhost:3306/test31602"></property>
+          <property name="username" value="root"></property>
+          <property name="password" value="root"></property>
+          </dataSource>
+          </environment>
+          </environments>
+    <mappers>
+        <mapper resource="com/aaa/ssm/dao/StudentDaoMapper.xml"></mapper>
+    </mappers>
+
+
+</configuration>

@@ -1,0 +1,18 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.ssm.dao.IStuDao">
+    <resultMap id="stuMap" type="com.aaa.ssm.entity.Student" autoMapping="true">
+        <association property="cls" javaType="com.aaa.ssm.entity.Class" autoMapping="true"></association>
+    </resultMap>
+    <select id="listM" resultMap="stuMap">
+        select s.stuId,s.clsId,s.name,s.sex,s.age,
+        c.clsId,
+        c.claName
+        from student s inner join class c on s.clsId=c.clsId
+    </select>
+    <delete id="deleteM" parameterType="">
+        delete from student where stuId=#{stuId}
+    </delete>
+
+
+</mapper>
